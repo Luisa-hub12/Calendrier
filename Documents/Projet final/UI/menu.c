@@ -16,14 +16,14 @@ int nb_formes = 0;
 int main() {
     int choix;
     do {
-        printf(CYAN"\n====== Menu Principal ======\n"RESET);
-        printf(GREEN"1"RESET" - Créer une forme\n");
-        printf(YELLOW"2"RESET" - Modifier une forme\n");
-        printf(RED"3"RESET" - Supprimer une forme\n");
-        printf(BLUE"4"RESET" - Liste des formes créées\n");
-        printf(YELLOW"5"RESET" - Exporter les formes en SVG (export.svg)\n");
+        printf(CYAN"\n========= MENU PRINCIPAL !! =========\n"RESET);
+        printf(GREEN"1 - Créer une forme"RESET"\n");
+        printf(YELLOW"2 - Modifier une forme"RESET"\n");
+        printf(RED"3 - Supprimer une forme"RESET"\n");
+        printf(BLUE"4 - Liste des formes créées" RESET"\n");
+        printf(YELLOW"5 - Exporter les formes en SVG (export.svg)"RESET"\n");
         printf(MAGENTA"0 - Quitter\n"RESET);
-        printf(BLUE"\n>>> Choisissez une option : "RESET);
+        printf(BLUE"\n->> Choisissez une option ! : "RESET);
         choix = lire_entier();
         switch (choix) {
             case 1: menu_creation(); break;
@@ -32,7 +32,7 @@ int main() {
             case 4: afficher_formes(); break;
             case 5: export_svg(); printf(GREEN "✅ Export SVG réussi ! Ouvre le fichier 'export.svg' dans ton navigateur.\n" RESET); break;
             case 0: printf(YELLOW"\n-------------------------------------\n Vous venez de quitter le programme.\n-------------------------------------\n"RESET); break;
-            default: printf(RED"\n----------------\n Choix invalide.\n----------------\n"RESET); break;
+            default: printf(RED"\n----------------\n Choix invalide. RECOMMENCE !!\n----------------\n"RESET); break;
 
         }
     } while (choix != 0);

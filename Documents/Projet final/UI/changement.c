@@ -32,85 +32,85 @@ void modifier_forme() {
     switch(f->type) {
         case 'c': { 
             circle* cir = f->forme;
-            printf(MAGENTA"\n--- Modifier Cercle ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le centre\n");
-            printf(BLUE"2"RESET" - Rayon\n");
-            printf(BLUE"3"RESET" - Couleur du trait\n");
-            printf(BLUE"4"RESET" - Couleur du fond\n");
-            printf(BLUE"5"RESET" - Inverser selon un axe\n");
-            printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(MAGENTA"\n========== MODIFIER CERCLE ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le centre"RESET"\n");
+            printf(BLUE"2 - Modifier le Rayon"RESET"\n");
+            printf(BLUE"3 - Changer la Couleur du trait"RESET"\n");
+            printf(BLUE"4 - Changer la Couleur du fond"RESET"\n");
+            printf(BLUE"5 - Inverser selon un axe"RESET"\n");
+            printf(MAGENTA"\nTouche Entrer pour ANNULER à tout moment !!\n"RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X de : ");
+                    printf(CYAN"===== Déplacer X de : ====="RESET"\n");
                     if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y de : ");
+                    printf(CYAN"===== Déplacer Y de : ====="RESET"\n");
                     if (!lire_entier_ou_retour(&dy)) break;
                     cir->x += dx; cir->y += dy;
                 } break;
                 case 2: {
                     int nouveau;
-                    printf("Nouveau rayon : ");
+                    printf(CYAN"===== Nouveau rayon : ====="RESET"\n");
                     if (!lire_entier_ou_retour(&nouveau)) break;
                     cir->radius = nouveau;
                 } break;
                 case 3: {
-                    printf("Nouvelle couleur du trait : "); scanf("%15s", cir->line_color); vider_buffer();
+                    printf(CYAN"Nouvelle couleur du trait : "RESET"\n"); scanf("%15s", cir->line_color); vider_buffer();
                 } break;
                 case 4: {
-                    printf("Nouvelle couleur du fond : "); scanf("%15s", cir->background_color); vider_buffer();
+                    printf(CYAN"Nouvelle couleur du fond : "RESET"\n"); scanf("%15s", cir->background_color); vider_buffer();
                 } break;
                 case 5: { /** @brief flip selon un axe */
-                        printf(BLUE"\nInverser le cercle :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(BLUE"\n===== Inverser le cercle :=====\n"RESET);
+                        printf(CYAN"1 - Selon X (horizontal)"RESET"\n");
+                        printf(CYAN"2 - Selon Y (vertical)"RESET"\n");
+                        printf(MAGENTA"->>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_circle(cir, true, false, 800, 800);  /** @brief inverser horizontalement */
                           else if (axe == 2)
                             flip_circle(cir, false, true, 800, 800);  /** @brief inverser verticalement */
                         else
-                            printf(YELLOW"\nAnnulé.\n"RESET);
+                            printf(YELLOW"\n=====ANNULÉ.=====\n"RESET);
                 } break;
             }
         } break;
 
         case 'a': { 
             square* squ = f->forme;
-            printf(MAGENTA"\n--- Modifier Carré ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le coin inférieur gauche\n");
-            printf(BLUE"2"RESET" - Longueur des côtés\n");
-            printf(BLUE"3"RESET" - Couleur du trait\n");
-            printf(BLUE"4"RESET" - Couleur du fond\n");
-            printf(BLUE"5"RESET" - Inverser selon un axe\n");
-            printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(MAGENTA"\n========== MODIFIER CARRÉ ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le coin inférieur gauche"RESET"\n");
+            printf(BLUE"2 - Longueur des côtés"RESET"\n");
+            printf(BLUE"3 - Couleur du trait"RESET"\n");
+            printf(BLUE"4 - Couleur du fond"RESET"\n");
+            printf(BLUE"5 - Inverser selon un axe"RESET"\n");
+            printf(MAGENTA"\nTouche Entrer pour ANNULER à tout moment !!\n"RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X : ");
+                    printf(CYAN"===== Déplacer X : ====="RESET"\n");
                     if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y : ");
+                    printf(CYAN"===== Déplacer Y : ====="RESET"\n");
                     if (!lire_entier_ou_retour(&dy)) break;
                     squ->x += dx; squ->y += dy;
                 } break;
                 case 2: {
                     int listed;
-                    printf("Nouvelle longueur des côtés  : ");
+                    printf(CYAN"->>Nouvelle longueur des côtés  : "RESET"\n");
                     if (!lire_entier_ou_retour(&listed)) break;
                     squ->listed = listed;
                 } break;
-                case 3: printf("Nouvelle couleur du trait : "); scanf("%15s", squ->line_color); vider_buffer(); break;
-                case 4: printf("Nouvelle couleur du fond : "); scanf("%15s", squ->background_color); vider_buffer(); break;
+                case 3: printf(CYAN"Nouvelle couleur du trait : "RESET"\n"); scanf("%15s", squ->line_color); vider_buffer(); break;
+                case 4: printf(CYAN"Nouvelle couleur du fond : "RESET"\n"); scanf("%15s", squ->background_color); vider_buffer(); break;
                 case 5: { 
-                        printf(BLUE"\nInverser le carré :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(BLUE"\nInverser le carré :"RESET"\n");
+                        printf(BLUE"1 - Selon X (horizontal)"RESET"\n");
+                        printf(BLUE"2 - Selon Y (vertical)"RESET"\n");
+                        printf(ORANGE">>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_square(squ, true, false, 800, 800);
@@ -124,38 +124,38 @@ void modifier_forme() {
 
         case 'r': { 
             rectangle* rec = f->forme;
-            printf(MAGENTA"\n--- Modifier Rectangle ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le coin inférieur gauche\n");
-            printf(BLUE"2"RESET" - Largeur\n");
-            printf(BLUE"3"RESET" - Hauteur\n");
-            printf(BLUE"4"RESET" - Couleur du trait\n");
-            printf(BLUE"5"RESET" - Couleur du fond\n");
-            printf(BLUE"6"RESET" - Inverser selon un axe\n");
-            printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(MAGENTA"\n========== MODIFIÉ RECTANGLE ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le coin inférieur gauche\n"RESET);
+            printf(BLUE"2 - Largeur\n"RESET);
+            printf(BLUE"3 - Hauteur\n"RESET);
+            printf(BLUE"4 - Couleur du trait\n"RESET);
+            printf(BLUE"5 - Couleur du fond\n"RESET);
+            printf(BLUE"6 - Inverser selon un axe\n"RESET);
+            printf(MAGENTA"\nTouche Entrer pour ANNULER à tout moment\n"RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X  : "); if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y  : "); if (!lire_entier_ou_retour(&dy)) break;
+                    printf(CYAN"Déplacer X  : "RESET"\n"); if (!lire_entier_ou_retour(&dx)) break;
+                    printf(CYAN"Déplacer Y  : "RESET"\n"); if (!lire_entier_ou_retour(&dy)) break;
                     rec->x += dx; rec->y += dy;
                 } break;
                 case 2: {
-                    int larg; printf("Nouvelle largeur : "); if (!lire_entier_ou_retour(&larg)) break;
+                    int larg; printf(RED"Nouvelle largeur : "RESET"\n"); if (!lire_entier_ou_retour(&larg)) break;
                     rec->width = larg;
                 } break;
                 case 3: {
-                    int haut; printf("Nouvelle hauteur : "); if (!lire_entier_ou_retour(&haut)) break;
+                    int haut; printf(RED"Nouvelle hauteur : "RESET"\n"); if (!lire_entier_ou_retour(&haut)) break;
                     rec->height = haut;
                 } break;
-                case 4: printf("Nouvelle couleur : "); scanf("%15s", rec->line_color); vider_buffer(); break;
-                case 5: printf("Nouvelle couleur du fond : "); scanf("%15s", rec->background_color); vider_buffer(); break;
+                case 4: printf(RED"Nouvelle couleur : "RESET"\n"); scanf("%15s", rec->line_color); vider_buffer(); break;
+                case 5: printf(RED"Nouvelle couleur du fond : "RESET"\n"); scanf("%15s", rec->background_color); vider_buffer(); break;
                 case 6: { 
                         printf(BLUE"\nInverser le rectangle :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(BROWN"1 - Selon X (horizontal)\n"RESET);
+                        printf(BROWN"2 - Selon Y (vertical)\n"RESET);
+                        printf(ORANGE"->>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_rectangle(rec, true, false, 800, 800);
@@ -169,39 +169,39 @@ void modifier_forme() {
 
         case 'l': { 
             line* lin = f->forme;
-            printf(MAGENTA"\n--- Modifier Ligne ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le premier point\n");
-            printf(BLUE"2"RESET" - Déplacer le second point\n");
-            printf(BLUE"3"RESET" - Couleur du trait\n");
-            printf(BLUE"4"RESET" - Épaisseur du trait\n");
-            printf(BLUE"5"RESET" - Inverser selon un axe\n");
+            printf(MAGENTA"\n========== MODIFIÉ LIGNE ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le premier point\n"RESET);
+            printf(BLUE"2 - Déplacer le second point\n"RESET);
+            printf(BLUE"3 - Couleur du trait\n"RESET);
+            printf(BLUE"4 - Épaisseur du trait\n"RESET);
+            printf(BLUE"5 - Inverser selon un axe\n"RESET);
             printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx1, dy1;
-                    printf("Déplacer X1 : "); if (!lire_entier_ou_retour(&dx1)) break;
-                    printf("Déplacer Y1 : "); if (!lire_entier_ou_retour(&dy1)) break;
+                    printf(GREEN"Déplacer X1 : "RESET"\n"); if (!lire_entier_ou_retour(&dx1)) break;
+                    printf(GREEN"Déplacer Y1 : "RESET"\n"); if (!lire_entier_ou_retour(&dy1)) break;
                     lin->x1 += dx1; lin->y1 += dy1;
                 } break;
                 case 2: {
                     int dx2, dy2;
-                    printf("Déplacer X2 : "); if (!lire_entier_ou_retour(&dx2)) break;
-                    printf("Déplacer Y2 : "); if (!lire_entier_ou_retour(&dy2)) break;
+                    printf(GREEN"Déplacer X2 : "RESET"\n"); if (!lire_entier_ou_retour(&dx2)) break;
+                    printf(GREEN"Déplacer Y2 : "RESET"\n"); if (!lire_entier_ou_retour(&dy2)) break;
                     lin->x2 += dx2; lin->y2 += dy2;
                 } break;
-                case 3: printf("Nouvelle couleur du trait : "); scanf("%15s", lin->line_color); vider_buffer(); break;
+                case 3: printf(CYAN"Nouvelle couleur du trait : "RESET"\n"); scanf("%15s", lin->line_color); vider_buffer(); break;
                 case 4: {
                     int epaisseur;
-                    printf("Nouvelle épaisseur du trait : "); if (!lire_entier_ou_retour(&epaisseur)) break;
+                    printf(CYAN"Nouvelle épaisseur du trait : "RESET"\n"); if (!lire_entier_ou_retour(&epaisseur)) break;
                     lin->thickness = epaisseur;
                 } break;
                 case 5: {
                         printf(BLUE"\nInverser la ligne :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(BROWN"1 - Selon X (horizontal)\n"RESET);
+                        printf(BROWN"2 - Selon Y (vertical)\n"RESET);
+                        printf(ORANGE"->>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_line(lin, true, false, 800, 800);
@@ -215,35 +215,35 @@ void modifier_forme() {
 
         case 'e': {
             ellipse* ell = f->forme;
-            printf(MAGENTA"\n--- Modifier Ellipse ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le centre\n");
-            printf(BLUE"2"RESET" - Rayons\n");
-            printf(BLUE"3"RESET" - Couleur du trait\n");
-            printf(BLUE"4"RESET" - Couleur du fond\n");
-            printf(BLUE"5"RESET" - Inverser selon un axe\n");
+            printf(MAGENTA"\n========== MODIFIER ELLIPSE ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le centre\n"RESET);
+            printf(BLUE"2 - Rayons\n"RESET);
+            printf(BLUE"3 - Couleur du trait\n"RESET);
+            printf(BLUE"4 - Couleur du fond\n"RESET);
+            printf(BLUE"5 - Inverser selon un axe\n"RESET);
             printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
             printf(BLUE"\n>>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X : "); if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y : "); if (!lire_entier_ou_retour(&dy)) break;
+                    printf(GREEN"Déplacer X : "RESET"\n"); if (!lire_entier_ou_retour(&dx)) break;
+                    printf(GREEN"Déplacer Y : "RESET"\n"); if (!lire_entier_ou_retour(&dy)) break;
                     ell->x += dx; ell->y += dy;
                 } break;
                 case 2: {
                     int r1, r2;
-                    printf("Nouveau rayon 1 : "); if (!lire_entier_ou_retour(&r1)) break;
-                    printf("Nouveau rayon 2 : "); if (!lire_entier_ou_retour(&r2)) break;
+                    printf(ORANGE"===== Nouveau rayon 1 : ====="RESET"\n"); if (!lire_entier_ou_retour(&r1)) break;
+                    printf(ORANGE"===== Nouveau rayon 2 : ====="RESET"\n"); if (!lire_entier_ou_retour(&r2)) break;
                     ell->radiusx= r1; ell->radiusy = r2;
                 } break;
-                case 3: printf("Nouvelle couleur du trait : "); scanf("%15s", ell->line_color); vider_buffer(); break;
-                case 4: printf("Nouvelle couleur du fond : "); scanf("%15s", ell->background_color); vider_buffer(); break;
+                case 3: printf(ORANGE"===== Nouvelle couleur du trait : ======"RESET"\n"); scanf("%15s", ell->line_color); vider_buffer(); break;
+                case 4: printf(ORANGE"===== Nouvelle couleur du fond : ====="RESET"\n"); scanf("%15s", ell->background_color); vider_buffer(); break;
                 case 5: {
                         printf(BLUE"\nInverser l'ellipse :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(RED"1 - Selon X (horizontal)\n"RESET);
+                        printf(RED"2 - Selon Y (vertical)\n"RESET);
+                        printf(YELLOW"->>> Votre choix : ");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_ellipse(ell, true, false, 800, 800);
@@ -257,31 +257,31 @@ void modifier_forme() {
 
         case 'g': {
             polygon* pgn = f->forme;
-            printf(MAGENTA"\n--- Modifier Polygone ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le polygone\n");
-            printf(BLUE"2"RESET" - Couleur du trait\n");
-            printf(BLUE"3"RESET" - Couleur du fond\n");
-            printf(BLUE"4"RESET" - Inverser selon un axe\n");
-            printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(MAGENTA"\n========== MODIFIER LE POLYGONE ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le polygone\n"RESET);
+            printf(BLUE"2 - Couleur du trait\n"RESET);
+            printf(BLUE"3 - Couleur du fond\n"RESET);
+            printf(BLUE"4 - Inverser selon un axe\n"RESET);
+            printf(MAGENTA"\nTouche Entrer pour ANNULER à tout moment\n"RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X : "); if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y : "); if (!lire_entier_ou_retour(&dy)) break;
+                    printf(PURPLE"===== Déplacer X : ====="RESET"\n"); if (!lire_entier_ou_retour(&dx)) break;
+                    printf(PURPLE"===== Déplacer Y : ====="RESET"\n"); if (!lire_entier_ou_retour(&dy)) break;
                     for (int i = 0; i < pgn->nb_points; i++) {
                         pgn->points[i].x += dx;
                         pgn->points[i].y += dy;
                     }
                 } break;
-                case 2: printf("Nouvelle couleur du trait : "); scanf("%15s", pgn->line_color); vider_buffer(); break;
-                case 3: printf("Nouvelle couleur du fond : "); scanf("%15s", pgn->background_color); vider_buffer(); break;
+                case 2: printf(CYAN"===== Nouvelle couleur du trait : ====="RESET"\n"); scanf("%15s", pgn->line_color); vider_buffer(); break;
+                case 3: printf(CYAN"===== Nouvelle couleur du fond : ====="RESET"\n"); scanf("%15s", pgn->background_color); vider_buffer(); break;
                 case 4: {
                         printf(BLUE"\nInverser le polygone :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(BLUE"1 - Selon X (horizontal)\n"RESET);
+                        printf(BLUE"2 - Selon Y (vertical)\n"RESET);
+                        printf(RED"->>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_polygon(pgn, true, false, 800, 800);
@@ -295,29 +295,29 @@ void modifier_forme() {
 
         case 'p': { 
             polyline* pln = f->forme;
-            printf(MAGENTA"\n--- Modifier Polyligne ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer la polyligne\n");
-            printf(BLUE"2"RESET" - Couleur du trait\n");
-            printf(BLUE"3"RESET" - Inverser selon un axe\n");
-            printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(MAGENTA"\n========== MODIFIER LA POLYLIGNE ==========\n"RESET);
+            printf(BLUE"1 - Déplacer la polyligne\n"RESET);
+            printf(BLUE"2 - Couleur du trait\n"RESET);
+            printf(BLUE"3 - Inverser selon un axe\n"RESET);
+            printf(MAGENTA"\nTouche Entrer pour ANNULER à tout moment !!\n"RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X : "); if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y : "); if (!lire_entier_ou_retour(&dy)) break;
+                    printf(BROWN"===== Déplacer X : ====="RESET"\n"); if (!lire_entier_ou_retour(&dx)) break;
+                    printf(BROWN"===== Déplacer Y : ====="RESET"\n"); if (!lire_entier_ou_retour(&dy)) break;
                     for (int i = 0; i < pln->nb_points; i++) {
                         pln->points[i].x += dx;
                         pln->points[i].y += dy;
                     }
                 } break;
-                case 2: printf("Nouvelle couleur du trait : "); scanf("%15s", pln->line_color); vider_buffer(); break;
+                case 2: printf(BROWN"===== Nouvelle couleur du trait : ====="RESET"\n"); scanf("%15s", pln->line_color); vider_buffer(); break;
                 case 3: {
                         printf(BLUE"\nInverser la polyligne :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(GREEN"1 - Selon X (horizontal)\n"RESET);
+                        printf(GREEN"2 - Selon Y (vertical)\n"RESET);
+                        printf(ORANGE"->>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
                         if (axe == 1)
                             flip_polyline(pln, true, false, 800, 800);
@@ -335,29 +335,29 @@ void modifier_forme() {
                 printf(RED"\nErreur : le path est introuvable.\n"RESET);
                 break;
             }
-            printf(MAGENTA"\n--- Modifier Path ---\n"RESET);
-            printf(BLUE"1"RESET" - Déplacer le path\n");
-            printf(BLUE"2"RESET" - Couleur du trait\n");
-            printf(BLUE"3"RESET" - Couleur de remplissage\n");
-            printf(BLUE"4"RESET" - Fermer/Ouvrir le path\n");
-            printf(BLUE"5"RESET" - Inverser selon un axe\n");
-            printf(MAGENTA"\nTouche Entrer pour Annuler à tout moment\n"RESET);
-            printf(BLUE"\n>>> Choisissez une option : "RESET);
+            printf(MAGENTA"\n========== MODIFIER LE PATH ==========\n"RESET);
+            printf(BLUE"1 - Déplacer le path\n"RESET);
+            printf(BLUE"2 - Couleur du trait\n"RESET);
+            printf(BLUE"3 - Couleur de remplissage\n"RESET);
+            printf(BLUE"4 - Fermer/Ouvrir le path\n"RESET);
+            printf(BLUE"5 - Inverser selon un axe\n"RESET);
+            printf(MAGENTA"\nTouche Entrer pour ANNULER à tout moment !!\n"RESET);
+            printf(BLUE"\n->>> Choisissez une option : "RESET);
             int choix = lire_entier();
             switch(choix) {
                 case 1: {
                     int dx, dy;
-                    printf("Déplacer X : "); if (!lire_entier_ou_retour(&dx)) break;
-                    printf("Déplacer Y : "); if (!lire_entier_ou_retour(&dy)) break;
+                    printf(YELLOW"===== Déplacer X : ====="RESET"\n"); if (!lire_entier_ou_retour(&dx)) break;
+                    printf(YELLOW"===== Déplacer Y : ====="RESET"\n"); if (!lire_entier_ou_retour(&dy)) break;
                     move_path(pth, dx, dy);
                     printf(GREEN"\nPath déplacé de (%d, %d)!\n"RESET, dx, dy);
                 } break;
-                case 2: printf("Nouvelle couleur du trait : "); 
+                case 2: printf(BLUE"Nouvelle couleur du trait : "RESET"\n"); 
                         scanf("%15s", pth->line_color); 
                         vider_buffer();
                         printf(GREEN"\nCouleur du trait modifiée.\n"RESET);
                         break;
-                case 3: printf("Nouvelle couleur de remplissage : "); 
+                case 3: printf(PINK"Nouvelle couleur de remplissage : "RESET"\n"); 
                         scanf("%15s", pth->fill_color); 
                         vider_buffer();
                         printf(GREEN"\nCouleur de remplissage modifiée.\n"RESET); 
@@ -368,17 +368,17 @@ void modifier_forme() {
                         break;
                 case 5: { 
                         printf(BLUE"\nInverser le path :\n"RESET);
-                        printf("1 - Selon X (horizontal)\n");
-                        printf("2 - Selon Y (vertical)\n");
-                        printf(">>> Votre choix : ");
+                        printf(MAGENTA"1 - Selon X (horizontal)\n"RESET);
+                        printf(MAGENTA"2 - Selon Y (vertical)\n"RESET);
+                        printf(RED"->>> Votre choix : "RESET"\n");
                         int axe = lire_entier();
 
                         if (axe == 1){
                             flip_path(pth, true, false, 800, 800);
-                            printf(GREEN"\nPath inversé horizontalement !\n"RESET);
+                            printf(GREEN"\n========== Path inversé horizontalement ! ==========\n"RESET);
                         } else if (axe == 2) {
                             flip_path(pth, false, true, 800, 800);
-                            printf(GREEN"\nPath inversé verticalement !\n"RESET);
+                            printf(GREEN"\n========== Path inversé verticalement ! ==========\n"RESET);
                         } else {
                             printf(YELLOW"\nAction Annulé.\n"RESET);
                         }
@@ -401,7 +401,7 @@ void supprimer_forme() {
 
     afficher_formes();
     printf(MAGENTA"\nTouche Entrer -> Annuler\n"RESET);
-    printf(BLUE"\n>>> Index de la forme à supprimer (0-%d) : "RESET, nb_formes-1);
+    printf(BLUE"\n->>> Index de la forme à supprimer (0-%d) : "RESET, nb_formes-1);
 
     char buffer[16];
     if (!fgets(buffer, sizeof(buffer), stdin)) return;
@@ -439,7 +439,7 @@ void afficher_formes() {
         printf(YELLOW"\n------------------------------------\n Aucune forme n'a encore été créée.\n------------------------------------\n"RESET);
         return;
     }
-    printf(CYAN"\n=== Liste des formes créées ===\n"RESET);
+    printf(CYAN"\n========== LISTE DES FORMES CRÉÉES ==========\n"RESET);
     for (int i = 0; i < nb_formes; i++) {
         printf("[%d] ", i);
         switch (formes[i].type) {
