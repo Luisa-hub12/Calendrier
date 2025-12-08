@@ -1,3 +1,10 @@
+.headers on
+.mode csv
+.output top3_enfants.csv
+
+
+
+
 -- Top 3 des enfants les plus sages
 WITH top3 AS (
     SELECT
@@ -71,3 +78,7 @@ JOIN households h ON t.id = h.id
 JOIN cities ci ON h.city_id = ci.id
 JOIN countries co ON ci.country_code = co.code
 JOIN elf_plan ep ON t.id = ep.child_id;
+
+
+
+.output stdout

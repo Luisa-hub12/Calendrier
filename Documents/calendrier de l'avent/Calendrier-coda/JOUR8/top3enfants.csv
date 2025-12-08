@@ -1,0 +1,6 @@
+first_name,last_name,nice_score,latitude,longitude,city,country,elf_x_m,elf_y_m
+Alice,Durand,100,48.8566,2.3522,Paris,France,523456.12,6812345.67
+Bob,Smith,100,51.5074,-0.1278,London,United Kingdom,432100.00,6789000.00
+Cara,Gomez,100,39.9042,116.4074,Beijing,China,345678.90,6678901.23
+David,Lee,100,34.0522,-118.2437,Los Angeles,USA,567890.12,6543210.34
+Emma,Nguyen,100,35.6895,139.6917,Tokyo,Japan,678901.23,6123456.78
