@@ -1,9 +1,7 @@
 from collections import defaultdict
 
 # Lire depuis un fichier snacks.txt ou depuis data
-data = 
-
-"""Lugh
+data = """Lugh
 1019
 5916
 3832
@@ -2308,3 +2306,9 @@ top3 = sorted(elf_totals.items(), key=lambda x: x[1], reverse=True)[:3]
 print(f"🍪 Elf of the Day: {top3[0][0]} with {top3[0][1]} calories!")
 print(f"🥈 Then comes {top3[1][0]} ({top3[1][1]}) and {top3[2][0]} ({top3[2][1]})")
 print(f"🎁 Combined snack power of Top 3: {sum(x[1] for x in top3)} calories!")
+
+
+
+resulat =  🍪 Elf of the Day: Ariadne with 282090 calories!
+🥈 Then comes Ra (265129) and Maeve (258179)
+🎁 Combined snack power of Top 3: 805398 calories!
